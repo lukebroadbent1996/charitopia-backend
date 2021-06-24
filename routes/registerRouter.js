@@ -36,7 +36,7 @@ connection.on("connect", err => {
 connection.connect();
 
 router.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: [process.env.origin],
     methods: ["GET", "POST"],
     credentials: true
 }));

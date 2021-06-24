@@ -7,7 +7,7 @@ const { Connection, Request } = require("tedious");
 require('dotenv').config()
 
 router.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: [process.env.origin],
     methods: ["GET", "POST"],
     credentials: true
 }));
