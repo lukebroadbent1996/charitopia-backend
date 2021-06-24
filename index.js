@@ -16,11 +16,7 @@ app.set('trust proxy', 1);
 
 
 app.use(express.json());
-app.use(cors({
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
-    credentials: true
-}));
+app.use(cors());
 
 
 app.use(cookieParser())
