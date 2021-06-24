@@ -15,14 +15,14 @@ router.use(cors({
 const config = {
     authentication: {
       options: {
-        userName: "master", // update me
-        password: "Charitopia23" // update me
+        userName: process.env.username,
+        password: process.env.password 
       },
       type: "default"
     },
-    server: "quizsql.database.windows.net", // update me
+    server: process.env.server, 
     options: {
-      database: "charitopia", //update me
+      database: "charitopia", 
       encrypt: true,
       rowCollectionOnRequestCompletion: true
     }
