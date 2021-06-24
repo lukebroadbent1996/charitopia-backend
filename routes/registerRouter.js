@@ -13,12 +13,12 @@ require('dotenv').config()
 const config = {
     authentication: {
       options: {
-        userName: "master", // update me
-        password: "Charitopia23" // update me
+        userName: process.env.username, // update me
+        password: process.env.password // update me
       },
       type: "default"
     },
-    server: "quizsql.database.windows.net", // update me
+    server: process.env.server, // update me
     options: {
       database: "charitopia", //update me
       encrypt: true
