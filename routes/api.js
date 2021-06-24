@@ -4,6 +4,14 @@ const axios = require('axios')
 const rateLimit = require('express-rate-limit')
 const slowDown = require('express-slow-down')
 
+const cors = require('cors');
+
+router.use(cors({
+  origin: [process.env.origin],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 //limits the amount of hits a ip can request
 const limiter = rateLimit({
     windowMs: 30 * 1000, // 30 seconds
