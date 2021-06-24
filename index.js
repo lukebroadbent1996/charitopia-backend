@@ -42,6 +42,6 @@ app.use( login);
 app.use('/api', api)
 
 
-app.listen(3001, ()=>{
+app.listen(process.env.PORT || 3001, ()=>{
     console.log('Server running on port 3001')
 })
