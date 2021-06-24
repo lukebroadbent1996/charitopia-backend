@@ -28,16 +28,16 @@ const speedLimiter = slowDown({
   
 });
 
-let cachedData;
-let cachedTime;
+
+// let cachedTime;
 
 let baseURL = `https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}&`
 
 router.post('/', limiter, speedLimiter, async (req, res)=>{
   // in memory cache so refreshing wont count as a hit
-    if (cachedTime && cachedTime > Date.now() - 30 * 1000){
-        return res.json(cachedData);
-    }
+    // if (cachedTime && cachedTime > Date.now() - 30 * 1000){
+    //     return res.json(cachedData);
+    // }
    try{
     let search = req.body.search
     let param
@@ -56,10 +56,9 @@ router.post('/', limiter, speedLimiter, async (req, res)=>{
     }
     
     const { data } = await axios.get(`${baseURL}${param}`)
-    cachedData = data
-    cachedTime = Date.now()
-    data.cachedTime = cachedTime
-    console.log(cachedTime)
+    // cachedTime = Date.now()
+    // data.cachedTime = cachedTime
+    // console.log(cachedTime)
     return res.json(data)
     
    }catch (err) {
